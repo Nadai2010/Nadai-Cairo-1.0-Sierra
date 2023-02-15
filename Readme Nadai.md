@@ -43,7 +43,7 @@ Sierra significa Safe Intermediate Representation (Representación Intermedia Se
 En este caso nos centraremos en dos contratos, [ERC20.cairo](src/ERC20.cairo) y [ENS.cairo](src/ens.cairo)
 
 ### ERC20
-Para compilar a Sierra, ejecute el siguiente comando:
+Para compilar a Sierra el [ERC20.cairo](src/ERC20.cairo) ejecute el siguiente comando:
 
 ```bash
 cargo run --bin starknet-compile -- src/ERC20.cairo src/ERC20.sierra --replace-ids
@@ -63,7 +63,7 @@ cargo run --bin starknet-sierra-compile -- src/ERC20.sierra src/ERC20.casm
 
 ![Graph](imágenes/erc20casm.png)
 
-Si la compilación fue exitosa, deberías ver la salida casm en tu src/hello.casm.
+Si la compilación fue exitosa, deberías ver la salida casm en tu src/ERC20.casm.
 
 ![Graph](imágenes/erc20casm2.png)
 
@@ -71,7 +71,7 @@ Si la compilación fue exitosa, deberías ver la salida casm en tu src/hello.cas
 
 ### ENS
 
-Después de conseguir compilar ERC20.cairo a Sierra y a Casm, podemos probar con ens.cairo
+Después de conseguir compilar ERC20.cairo a Sierra y a Casm, podemos probar con [ens.cairo](src/ens.cairo)
 
 Para compilar a Sierra, ejecute el siguiente comando:
 
