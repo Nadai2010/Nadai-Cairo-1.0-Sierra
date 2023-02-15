@@ -117,7 +117,11 @@ PD: Deberías añadir este fragmento extra a tu archivo settings.json en VScode 
 ```bash
 "cairo1.languageServerPath": "/Some/Path/target/release/cairo-language-server",
 ```
-![Graph](imágenes/cairo1.0bad.png), ![Graph](imágenes/cairo1.0good.png),
+<div style="display: flex;">
+  <img src="imágenes/cairo1.0bad.png" alt="cairo1.0bad">
+  <img src="imágenes/cairo1.0good.png" alt="cairo1.0good">
+</div>
+
 
 Si tu instalación fue exitosa, dirígete a src/hello.cairo, y deberías tener el resaltado de sintaxis activado, como se ve en la imagen de arriba.
 
