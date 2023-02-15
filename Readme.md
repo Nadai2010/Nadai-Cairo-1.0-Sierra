@@ -1,3 +1,41 @@
+<div align="center">
+  <h1>Cairo 1.0🐺 </h1>
+  <h2> ⚡Compilador ⚡ rapidísimo ⚡ para Cairo, escrito en 🦀 Rust. 🦀 </h2>
+  <a href="https://github.com/starkware-libs/cairo/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Reportar un Error</a>
+  -
+  <a href="https://github.com/starkware-libs/cairo/issues/new?assignees=&labels=enhancement&template=02_FEATURE_REQUEST.md&title=feat%3A+">Solicitar una Función</a>
+  -
+  <a href="https://github.com/starkware-libs/cairo/discussions">Formule una Pregunta</a>
+</div>
+
+<div align="center">
+<br />
+
+[![GitHub Workflow Status](https://github.com/starkware-libs/cairo/actions/workflows/ci.yml/badge.svg)](https://github.com/starkware-libs/cairo/actions/workflows/ci.yml)
+[![Project license](https://img.shields.io/github/license/starkware-libs/cairo.svg?style=flat-square)](LICENSE)
+[![Pull Requests welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/starkware-libs/cairo/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
+
+</div>
+
+
+---
+
+## Cómo empezar
+
+### Requisitos previos
+
+- Instalar [Rust](https://www.rust-lang.org/tools/install)
+- Configurar Rust:
+```bash
+rustup override set stable && rustup update && cargo test
+```
+
+Una vez instalado Rust, clona el repositorio ejecutando el siguiente comando en un terminal:
+
+* Darlington02 Oficial: `git clone git@github.com:Darlington02/cairo1.0.git`
+* Nadai Oficial: `gh repo clone Nadai2010/Nadai-Cairo-1.0-Sierra`
+
+
 ## Empezando con Cairo 1.0
 En septiembre del año pasado, StarkWare hizo dos anuncios importantes que mejorarían significativamente la experiencia de los desarrolladores en la red. 
 
@@ -20,12 +58,12 @@ En este artículo, te enseñaremos cómo escribir y compilar tu primer contrato 
 Antes de empezar a escribir nuestro código, necesitamos configurar un entorno de desarrollo. Desafortunadamente, las herramientas con las que puedes estar familiarizado para Starknet, como Protostar, Nile, o la CLI oficial de Starknet para desarrollo, actualmente no soportan Cairo 1.0. Eso significa que tendremos que usar una solución alternativa...
 
 Hemos resuelto esto creando un:
-- [Entorno de desarrollo personalizado para Cairo 1.0](https://github.com/Darlington02/cairo1.0) clonando y recortando el
+- [Entorno de desarrollo personalizado para Cairo 1.0](https://github.com/Darlington02/cairo1.0) clonando y recortando el 
  repositorio oficial. Necesitarás clonar este repositorio para escribir y compilar tu contrato Cairo 1.0.  
-- [Nadai Entorno de desarrollo personalizado para Cairo 1.0]() clonando y recortando el
- repositorio oficial. Necesitarás clonar este repositorio para escribir y compilar tu contrato Cairo 1.0 con guías y algunos contratos extras.
+- [Nadai Entorno de desarrollo personalizado para Cairo 1.0](https://github.com/Nadai2010/Nadai-Cairo-1.0-Sierra) clonando y 
+recortando el repositorio oficial. Necesitarás clonar este repositorio para escribir y compilar tu contrato Cairo 1.0 con guías y algunos contratos extras, revise [Readme Nadai](https://github.com/Nadai2010/Nadai-Cairo-1.0-Sierra/blob/master/Readme%20NADAI.md) para más información.
 
-¡[Graph]()
+¡[Graph](imágenes/clone.png)
 
 Todos nuestros contratos irán en la carpeta [src](src). Ya hemos creado un contrato boilerplate que compilaremos para sierra y casm en la siguiente sección de este artículo.
 
