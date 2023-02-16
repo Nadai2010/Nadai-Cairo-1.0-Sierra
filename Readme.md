@@ -520,7 +520,7 @@ Aquí tienes algunos recursos adicionales que creemos que te ayudarán en tu via
 
 1. [A First Look at Cairo 1.0: A Safer, Stronger & Simpler Provable Programming Language](https://medium.com/nethermind-eth/a-first-look-at-cairo-1-0-a-safer-stronger-simpler-provable-programming-language-892ce4c07b38)
 2. [Cairo 1.0 — changes, features, release date](https://extropy-io.medium.com/cairo-1-0-changes-features-release-date-15a266d7b919)
-3.[https://github.com/starkware-libs/cairo/blob/main/docs/reference/src/SUMMARY.adoc](https://github.com/starkware-libs/cairo/blob/main/docs/reference/src/SUMMARY.adoc)
+3. [https://github.com/starkware-libs/cairo/blob/main/docs/reference/src/SUMMARY.adoc](https://github.com/starkware-libs/cairo/blob/main/docs/reference/src/SUMMARY.adoc)
 4. [https://github.com/argentlabs/starknet-build/tree/main/cairo1.0/examples](https://github.com/argentlabs/starknet-build/tree/main/cairo1.0/examples)
 5. [Cairo 1.0 by StarkWare](https://medium.com/starkware/cairo-1-0-aa96eefb19a0#:~:text=Introducing%20Sierra%3A%20ensuring%20every%20Cairo%20run%20can%20be%20proven)
 
