@@ -207,24 +207,32 @@ Con Cairo 1.0, para empezar a escribir un contrato Starknet, tienes que especifi
 ```bash
 #[contract]
 ```
+Aunque todo programa de Cairo debe implementar una función principal, importar una función también se ha vuelto más fácil.
+
+Puedes hacerlo así
+
+```bash
+use starknet::get_caller_address;
+```
+
 También puede importar el "paquete" completo:
 
 ```bash
 use starknet;
 ```
 
-y úsalo así:
+y úsarlo así:
 
 ```bash
 starknet::get_caller_address() 
 ```
 
 ### Tipos de datos
-La firma del ecosistema de Starknet es el tipo de datos fieltro, y por supuesto, ¡no van a desaparecer pronto! 
+La firma del ecosistema de Starknet es el tipo de datos felt, y por supuesto, ¡no van a desaparecer pronto! 
 
-Además del tipo de dato fieltro, hay soporte para otros tipos de Entero, como uint256, uint128, uint64, uint32, y uint8.
+Además del tipo de dato felt, hay soporte para otros tipos de entero, como uint256, uint128, uint64, uint32, y uint8.
 
-Aunque estos tipos Integer se implementan usando fieltros entre bastidores, se consideran más seguros de usar y ahora pueden soportar operaciones aritméticas sin necesidad de librerías personalizadas. p.e., ahora puedes realizar operaciones como:
+Aunque estos tipos enteros se implementan usando felts entre bastidores, se consideran más seguros de usar y ahora pueden soportar operaciones aritméticas sin necesidad de librerías personalizadas. p.e., ahora puedes realizar operaciones como:
 
 ```cairo
 let sum = 1_uint128 + 2_uint128;
@@ -232,19 +240,19 @@ let sum = 1_uint128 + 2_uint128;
 let product = 5_uint256 * 10_uint256;
 ```
 
-El uso de estos operadores está protegido contra desbordamiento y causa pánico si se detecta un desbordamiento.
+El uso de estos operadores está protegido contra overflow (desbordamiento) y causa pánico si se detecta un overflow.
 
 También hay soporte para un tipo de datos contractAddress similar al address de Solidity, que ha sido implementado recientemente en Cairo 0.1.
 
-### Literales de tipo
-Los literales numéricos como 1,2,3 son felt por defecto. Sin embargo, puede especificar un tipo de datos diferente para ellos añadiendo el tipo de datos, así:
+### Literales
+Los literales numéricos como 1,2,3 son felts por defecto. Sin embargo, puede especificar un tipo de datos diferente para ellos añadiendo el tipo de datos, así:
 
 ```cairo
 let num_uint256 = 1_uint256
 ```
 
 ### La palabra clave let para gobernarlos a todos
-Con Cairo 1.0, finalmente eliminamos múltiples patrones de declaración de variables (tempvar, local, etc.) para abrazar sólo el uso de la palabra clave let.
+Con Cairo 1.0, finalmente eliminamos múltiples patrones de declaración de variables (tempvar, local, etc.) para adoptar sólo el uso de la palabra clave let.
 
 Esto es muy útil ya que finalmente decimos adiós a los errores del compilador por referencias revocadas.
 
@@ -283,7 +291,7 @@ let name = name::read()
 let name = name::write(_name)
 ```
 
-Los mapeos se pueden crear utilizando la palabra clave LegacyMap, donde los tipos de datos de las variables mapeadas se insertan entre < y > . También se pueden mapear tuplas.
+Los mapeos se pueden crear utilizando la palabra clave LegacyMap, donde los tipos de datos de las variables mapeadas se insertan entre < and > . También se pueden mapear tuplas.
 
 ## Eventos
 Los eventos permiten a un contrato emitir información durante el curso de su ejecución que puede ser utilizada fuera de Starknet. 
@@ -404,7 +412,7 @@ func main() -> felt {
 ```
 
 ## Array
-Cairo 1.0 hace que la manipulación de matrices sea mucho más fácil, ya que la biblioteca principal exporta un tipo de matriz además de algunas funciones asociadas como append, array_at y array_len. Algunas operaciones básicas de array incluyen añadir nuevos elementos a un array existente, obtener el índice de un elemento, obtener la longitud del array, etc. Se puede acceder a ellas desde ArrayTrait.
+Cairo 1.0 hace que la manipulación de matrices sea mucho más fácil, ya que la librería principal exporta un tipo de matriz además de algunas funciones asociadas como append, array_at y array_len. Algunas operaciones básicas de array incluyen añadir nuevos elementos a un array existente, obtener el índice de un elemento, obtener la longitud del array, etc. Se puede acceder a ellas desde ArrayTrait.
 
 ```cairo
 fn fib(n: usize) -> (Array::<felt>, felt, usize) {
@@ -437,8 +445,8 @@ assert(sender != 0, 'ERC20: transfer from 0');
 
 El mensaje de error debe tener menos de 31 caracteres.
 
-## Rasgos (Trait) y sus implementaciones
-Cairo 1.0 introduce los rasgos y sus implementaciones. Piensa en los traits como un tipo especial de interfaz de contrato, ya que definen funcionalidades que un tipo particular tiene y puede compartir con otros. Se definen usando la palabra clave trait.
+## Trait (Rasgos) y sus implementaciones
+Cairo 1.0 introduce los traits y sus implementaciones. Piensa en los traits como un tipo especial de interfaz de contrato, ya que definen funcionalidades que un tipo particular tiene y puede compartir con otros. Se definen usando la palabra clave trait.
 
 ```cairo
 trait IContract{
@@ -450,7 +458,7 @@ trait IContract{
 }
 ```
 
-Por otro lado, una implementación implementa comportamientos específicos del rasgo. Todas las funciones del rasgo deben definirse en la implementación. 
+Por otro lado, una implementación implementa comportamientos específicos del trait. Todas las funciones del trait deben definirse en la implementación. 
 
 Se definen utilizando la palabra clave impl de la siguiente manera:
 
@@ -483,7 +491,7 @@ fn foo<T>(arg: T) -> T {
  }
 ```
 
-## Reemplazar_class sysall
+## Replace_class sysall
 Con Cairo 1.0 y Starknet v0.11, se añadirá una nueva syscall, que te permitirá cambiar la implementación del contrato subyacente (hash de clase) sin cambiar el punto de entrada del contrato. ¡Piensa en un proxy por defecto! 
 
 Y lo mejor es que puedes hacerlo utilizando una sola línea de código:
@@ -512,7 +520,7 @@ Aquí tienes algunos recursos adicionales que creemos que te ayudarán en tu via
 
 1. [A First Look at Cairo 1.0: A Safer, Stronger & Simpler Provable Programming Language](https://medium.com/nethermind-eth/a-first-look-at-cairo-1-0-a-safer-stronger-simpler-provable-programming-language-892ce4c07b38)
 2. [Cairo 1.0 — changes, features, release date](https://extropy-io.medium.com/cairo-1-0-changes-features-release-date-15a266d7b919)
-3.[https://github.com/starkware-libs/cairo/blob/main/docs/reference/src/SUMMARY.adoc](https://github.com/starkware-libs/cairo/blob/main/docs/reference/src/SUMMARY.adoc)
+3. [https://github.com/starkware-libs/cairo/blob/main/docs/reference/src/SUMMARY.adoc](https://github.com/starkware-libs/cairo/blob/main/docs/reference/src/SUMMARY.adoc)
 4. [https://github.com/argentlabs/starknet-build/tree/main/cairo1.0/examples](https://github.com/argentlabs/starknet-build/tree/main/cairo1.0/examples)
 5. [Cairo 1.0 by StarkWare](https://medium.com/starkware/cairo-1-0-aa96eefb19a0#:~:text=Introducing%20Sierra%3A%20ensuring%20every%20Cairo%20run%20can%20be%20proven)
 
