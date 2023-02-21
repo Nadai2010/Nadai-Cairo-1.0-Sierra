@@ -40,7 +40,7 @@ Una vez instalado Rust, clona el repositorio ejecutando el siguiente comando en 
 
 Sierra significa Safe Intermediate Representation (Representación Intermedia Segura) y pretende constituir una capa de representación entre los programas Cairo y sus bytecodes. Sierra abre la posibilidad de probar cada ejecución de Cairo, permitiendo así una robusta protección contra ataques de Denegación de Servicio (DoS).
 
-En este caso nos centraremos en dos contratos, [ERC20.cairo](src/ERC20.cairo) y [ENS.cairo](src/ens.cairo)
+En este caso nos centraremos en tres contratos, [ERC20.cairo](src/ERC20.cairo), [ENS.cairo](src/ens.cairo) y [AMM.cairo](src/amm.cairo).
 
 ### ERC20
 Para compilar a Sierra el [ERC20.cairo](src/ERC20.cairo) ejecute el siguiente comando:
@@ -97,10 +97,41 @@ Si la compilación fue exitosa, deberías ver la salida casm en tu src/ens.casm.
 
 ![Graph](imágenes/enscasm2.png)
 
+---
+
+## AMM
+
+También después de conseguir compilar ens.cairo a Sierra y a Casm, podemos probar con [amm.cairo](src/amm.cairo)
+
+Para compilar a Sierra, ejecute el siguiente comando:
+
+```bash
+cargo run --bin starknet-compile -- src/ens.cairo src/ens.sierra --replace-ids
+```
+
+![Graph](imágenes/ammsi.png)
+
+Si la compilación fue exitosa, debería ver la salida de Sierra en su src/amm.sierra.
+
+![Graph](imágenes/ammsi2.png)
+
+Para seguir compilando de Sierra a Casm, ejecute el siguiente comando:
+
+```bash
+cargo run --bin starknet-sierra-compile -- src/amm.sierra src/amm.casm
+```
+
+![Graph](imágenes/ammcasm.png)
+
+Si la compilación fue exitosa, deberías ver la salida casm en tu src/amm.casm.
+
+![Graph](imágenes/ammcasm2.png)
+
+---
 ## Conclusión
 Aquí estamos dando paso a nuestros primeros contratos preparados para el lanzamiento de Starknet Alpha 0.11 en la que podremos usar en testnet nuestros contratos.
 
 
- 
+
 
 
